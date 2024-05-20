@@ -45,4 +45,15 @@ public class MainNotebookSshop {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
     }
+        // Получение минимального значения для указанного критерия от пользователя
+        public static Object getMinValueForCriterion(String criterionName) {
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.println("Введите минимальное значение для " + criterionName + ":");
+            if (criterionName.equals("RAM") || criterionName.equals("HDD")) {
+                return scanner.nextInt();
+            } else {
+                return scanner.next();
+            }
+        }
 }
