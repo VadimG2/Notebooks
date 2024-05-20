@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class NotebookSshop {
     private int id;
     private int RAM;
@@ -52,4 +54,26 @@ public class NotebookSshop {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        NotebookSshop notebook = (NotebookSshop) obj;
+        return id == notebook.id &&
+                RAM == notebook.RAM &&
+                HDDSize == notebook.HDDSize &&
+                OS.equals(notebook.OS) &&
+                color.equals(notebook.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, RAM, HDDSize, OS, color);
+    }
+
 }
